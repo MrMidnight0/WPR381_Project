@@ -1,6 +1,6 @@
-## Available Scripts
+## WELCOME TO THE WEATHER APP
 
-In the project directory, you NEED to run:
+## In the project directory, you NEED to run:
 
 ### `npm start` In the backend Directory
 
