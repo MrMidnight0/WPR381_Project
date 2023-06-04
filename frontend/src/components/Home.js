@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 const Home = () => {
   const [zipCode, setZipCode] = useState('');
   const navigate = useNavigate();
+  const [error, setError] = useState('');
+
 
   const handleFormSubmit = event => {
     event.preventDefault();
@@ -24,11 +26,20 @@ const Home = () => {
       .catch(error => {
         console.log(error);
         // Handle error scenarios
+        if (error.message === 'Invalid zip code') {
+          // Display an error message to the user indicating an invalid zip code
+          // For example, you can update the state to show the error message
+          setError('Invalid zip code entered');
+        } else {
+          // Display a generic error message for other errors
+          setError('Error fetching weather data');
+        }
       });
   };
   return (
     <div>
       <h1>Weather App</h1>
+      {error && <p>{error}</p>}
       <form onSubmit={handleFormSubmit}>
         <input
           type="text"

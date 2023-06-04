@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const CurrentWeather = () => {
   const location = useLocation();
@@ -9,15 +9,17 @@ const CurrentWeather = () => {
     console.log(weatherData);
   }, [weatherData]);
 
-  if (!weatherData) {
-    return <p>Loading...</p>;
+  if (!weatherData || !weatherData.main || !weatherData.weather || weatherData.weather.length === 0) {
+    return <p>Invalid zipcode or city name</p>;
   }
+
+  const { main, weather } = weatherData;
 
   return (
     <div>
       <h2>Current Weather for {location.pathname}</h2>
-      <p>Temperature: {weatherData.main.temp}</p>
-      <p>Weather: {weatherData.weather[0].description}</p>
+      <p>Temperature: {main.temp}</p>
+      <p>Weather: {weather[0].description}</p>
     </div>
   );
 };
