@@ -20,7 +20,7 @@ app.post('/weather', (req, res) => {
 
   
     // Perform the API request to fetch weather data
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${zipCode}&APPID=${API_KEY}`;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${zipCode}&APPID=${API_KEY}&units=metric`;
     axios.post(apiUrl)
       .then(response => {
         const data = response.data;

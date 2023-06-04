@@ -30,3 +30,6 @@ body{
     margin-top: 5px;
     background-color: rgb(187, 180, 180); 
   }
+  .weather-container {
+    color: black;
+  }

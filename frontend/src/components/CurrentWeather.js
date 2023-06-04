@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import "./Weather.css"
 
@@ -11,11 +11,8 @@ const CurrentWeather = () => {
     let path = '/';
     navigate(path);
   }
-  const unitTypeSymbol = {
-    'imperial': '°F',
-    'metric': '°C',
-    '': 'K',
-  };
+
+  const [unit, setUnit] = useState('metric');
 
   useEffect(() => {
     console.log(weatherData);
@@ -25,17 +22,39 @@ const CurrentWeather = () => {
     return <p>Invalid zipcode or city name</p>;
   }
 
-  const celsiusCurrent = () => {
-    return Math.round(main.temp - 273.15);
-  }
-  const celsiusFeel = () => {
-    return Math.round(main.feels_like - 273.15);
-  }
+  const toggleUnit = () => {
+    setUnit(unit === 'metric' ? 'imperial' : 'metric');
+  };
 
+  const TempCurrent = (temp, currentUnit) => {
+    if (currentUnit === 'metric') {
+      // Temperature is already in Celsius
+      return temp;
+    } else {
+      // Convert from Celsius to Fahrenheit
+      return (temp * 9) / 5 + 32;
+    }
+  };
+
+  const TempFeels = (feels_like, currentUnit) => {
+    if (currentUnit === 'metric') {
+      // Temperature is already in Celsius
+      return feels_like;
+    } else {
+      // Convert from Celsius to Fahrenheit
+      return (feels_like * 9) / 5 + 32;
+    }
+  };
+  
   const { main, weather } = weatherData;
   const weatherIcon = `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`;
+
+//ensure that the temperature displayed to the user is in the selected unit
+  const TempCurrentCon = TempCurrent(main.temp, unit);
+  const TempFeelsCon = TempFeels(main.feels_like, unit);
+
   return (
-    <div>
+    <div className="weather-container">
       <div>
       <button className='button' onClick={routeChange}> Go back</button>
       
@@ -45,10 +64,17 @@ const CurrentWeather = () => {
       <div className="d-flex justify-content-center">
         <img src={weatherIcon} alt="Weather Icon" />
       </div>
-      <p>Temperature: {celsiusCurrent(main.temp) + "°C"}</p>
+
+      <p>Temperature: {TempCurrentCon.toFixed(2)}°{unit === 'metric' ? 'C' : 'F'}</p>
+
       <p>Weather: {weather[0].description}</p>
-       <p>Feels like: {celsiusFeel(main.feels_like)+ "°C"}</p>
-       <button className='toggle-button'>Change Unit</button>             
+
+       <p>Feels like: {TempFeelsCon.toFixed(2)}°{unit === 'metric' ? 'C' : 'F'}</p>
+
+       <button onClick={toggleUnit}>
+        Toggle Unit: {unit === 'metric' ? 'Imperial' : 'Metric'}
+      </button>        
+
     </div>
     </div>
   );
