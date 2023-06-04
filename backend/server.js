@@ -2,9 +2,10 @@ const express = require('express');
 const fetch = require('isomorphic-fetch');
 const axios = require('axios');
 const cors = require('cors');
+const dotenv = require('dotenv').config();
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT;
 
 app.use(express.json());
 app.use(cors());
