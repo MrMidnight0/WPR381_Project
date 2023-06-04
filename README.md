@@ -13,5 +13,5 @@ You may also see any lint errors in the console.
 ### `npm start` In the frontend Directory
 
 Runs the express server.\
-You can open it but this is just the backend and will not display much.
+You can open it but this is just the backend and will not display much.\
 Open [http://localhost:8080](http://localhost:8080) to view it in your browser.
