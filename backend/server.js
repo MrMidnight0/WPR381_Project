@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(cors());
 
 // Weather API key
-const API_KEY = 'c4e81e91cb3513cbe9376a1899040eff';
+const API_KEY = 'ADD YOUR API KEY HERE';
 
 
 // Routes

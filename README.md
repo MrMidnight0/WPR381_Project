@@ -1,5 +1,9 @@
 ## WELCOME TO THE WEATHER APP
 
+## REMINDER 
+Add you own weather API key in the server.js folder in the backend.
+Get your API key [https://openweathermap.org/api](https://openweathermap.org/api) here.
+
 ## In the project directory, you NEED to run:
 
 ### `npm start` In the backend Directory
