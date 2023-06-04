@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import "./Weather.css"
 
 
+
 const CurrentWeather = () => {
   const location = useLocation();
   const { weatherData } = location.state;
@@ -19,7 +20,15 @@ const CurrentWeather = () => {
   }, [weatherData]);
 
   if (!weatherData || !weatherData.main || !weatherData.weather || weatherData.weather.length === 0) {
-    return <p>Invalid zipcode or city name</p>;
+    return (
+      <div>
+      <p>Invalid zipcode or city name</p>
+      
+        <div>
+          <button className='button' onClick={routeChange}> Try Again</button>
+        </div>
+      </div>
+      )   
   }
 
   const toggleUnit = () => {
@@ -54,29 +63,30 @@ const CurrentWeather = () => {
   const TempFeelsCon = TempFeels(main.feels_like, unit);
 
   return (
-    <div className="weather-container">
-      <div>
-      <button className='button' onClick={routeChange}> Go back</button>
-      
-      </div>
-    <div className='data'>
-      <h2>Current Weather for {weatherData.name}</h2>
-      <div className="d-flex justify-content-center">
-        <img src={weatherIcon} alt="Weather Icon" />
-      </div>
 
-      <p>Temperature: {TempCurrentCon.toFixed(2)}°{unit === 'metric' ? 'C' : 'F'}</p>
+<div className="weather-container">
+<div>
+<button className='button' onClick={routeChange}> Go back</button>
+</div>
+<div className='data'>
+<h2>Current Weather for {weatherData.name}</h2>
+<div className="d-flex justify-content-center">
+  <img src={weatherIcon} alt="Weather Icon" />
+</div>
 
-      <p>Weather: {weather[0].description}</p>
+<p>Temperature: {TempCurrentCon.toFixed(2)}°{unit === 'metric' ? 'C' : 'F'}</p>
 
-       <p>Feels like: {TempFeelsCon.toFixed(2)}°{unit === 'metric' ? 'C' : 'F'}</p>
+<p>Weather: {weather[0].description}</p>
 
-       <button onClick={toggleUnit}>
-        Toggle Unit: {unit === 'metric' ? 'Imperial' : 'Metric'}
-      </button>        
+ <p>Feels like: {TempFeelsCon.toFixed(2)}°{unit === 'metric' ? 'C' : 'F'}</p>
 
-    </div>
-    </div>
+ <button onClick={toggleUnit}>
+  Change Temperature to: {unit === 'metric' ? 'Imperial' : 'Metric'}
+</button> 
+</div>
+
+</div>
+
   );
 };
 

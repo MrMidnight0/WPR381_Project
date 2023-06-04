@@ -2,34 +2,34 @@ body{
     background-color:rgb(41, 103, 219);
 } 
 .data{
-    background-color: white;
-    width: 350px;
-    height: 350px;
-    margin: 0 auto;
-    margin-top: 50px;
-    padding: 20px;
-    text-align: center;
+  background-color: white;
+  width: 350px;
+  height: 350px;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 20px;
+  text-align: center;
 }
 .button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    width: 80px;
-    margin-top: 50px;
-    padding: 10px;
-    background-color: rgb(187, 180, 180); 
-  }
-  .toggle-button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    width: 100px;
-    padding: 10px;
-    margin-top: 5px;
-    background-color: rgb(187, 180, 180); 
-  }
-  .weather-container {
-    color: black;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 80px;
+  margin-top: 50px;
+  padding: 10px;
+  background-color: rgb(187, 180, 180); 
+}
+.toggle-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 100px;
+  padding: 10px;
+  margin-top: 5px;
+  background-color: rgb(187, 180, 180); 
+}
+.weather-container {
+  color: black;
+}

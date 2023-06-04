@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./Home.css"
+
 const Home = () => {
   const [zipCode, setZipCode] = useState('');
   const navigate = useNavigate();
@@ -41,9 +42,10 @@ const Home = () => {
       <h1>Weather App</h1>
       {error && <p>{error}</p>}
       <form onSubmit={handleFormSubmit}>
+        <p>Enter a city name or a Zip Code </p>
         <input
           type="text"
-          placeholder="Enter Zip Code"
+          placeholder="City or Zip Code"
           value={zipCode}
           onChange={event => setZipCode(event.target.value)}
         />
