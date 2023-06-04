@@ -29,7 +29,6 @@ const Home = () => {
         // Handle error scenarios
         if (error.message === 'Invalid zip code') {
           // Display an error message to the user indicating an invalid zip code
-          // For example, you can update the state to show the error message
           setError('Invalid zip code entered');
         } else {
           // Display a generic error message for other errors

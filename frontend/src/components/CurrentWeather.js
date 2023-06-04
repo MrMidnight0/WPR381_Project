@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import "./Weather.css"
 
-
-
 const CurrentWeather = () => {
   const location = useLocation();
   const { weatherData } = location.state;
@@ -65,26 +63,25 @@ const CurrentWeather = () => {
   return (
 
 <div className="weather-container">
-<div>
-<button className='button' onClick={routeChange}> Go back</button>
-</div>
-<div className='data'>
-<h2>Current Weather for {weatherData.name}</h2>
-<div className="d-flex justify-content-center">
-  <img src={weatherIcon} alt="Weather Icon" />
-</div>
+  <div>
+    <button className='button' onClick={routeChange}> Go back</button>
+  </div>
+  <div className='data'>
+      <h2>Current Weather for {weatherData.name}</h2>
+    <div className="d-flex justify-content-center">
+      <img src={weatherIcon} alt="Weather Icon" />
+  </div>
 
-<p>Temperature: {TempCurrentCon.toFixed(2)}°{unit === 'metric' ? 'C' : 'F'}</p>
+    <p>Temperature: {TempCurrentCon.toFixed(2)}°{unit === 'metric' ? 'C' : 'F'}</p>
 
-<p>Weather: {weather[0].description}</p>
+    <p>Weather: {weather[0].description}</p>
 
- <p>Feels like: {TempFeelsCon.toFixed(2)}°{unit === 'metric' ? 'C' : 'F'}</p>
+    <p>Feels like: {TempFeelsCon.toFixed(2)}°{unit === 'metric' ? 'C' : 'F'}</p>
 
- <button onClick={toggleUnit}>
-  Change Temperature to: {unit === 'metric' ? 'Imperial' : 'Metric'}
-</button> 
-</div>
-
+    <button onClick={toggleUnit}>
+      Change Temperature to: {unit === 'metric' ? 'Imperial' : 'Metric'}
+    </button> 
+  </div>
 </div>
 
   );
