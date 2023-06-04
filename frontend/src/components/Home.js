@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import "./Home.css"
 const Home = () => {
   const [zipCode, setZipCode] = useState('');
   const navigate = useNavigate();
@@ -47,7 +47,7 @@ const Home = () => {
           value={zipCode}
           onChange={event => setZipCode(event.target.value)}
         />
-        <button type="submit">Get Weather</button>
+        <button className='button-style' type="submit">Get Weather</button>
       </form>
     </div>
   );

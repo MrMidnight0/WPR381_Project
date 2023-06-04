@@ -1,0 +1,10 @@
+body{
+    background-color:rgb(41, 103, 219);
+    text-align: center;
+    color: white;
+    margin-top: 100px;
+   } 
+   .button-style{
+    background-color: orangered;
+    color: white;
+}
